@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.searchContainer {
+.searchContainer form {
   display: flex;
   align-items: center;
   gap: 10px;

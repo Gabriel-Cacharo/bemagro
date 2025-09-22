@@ -1,18 +1,20 @@
 <app-header></app-header>
 
 <main class="mainContent">
-  <div class="searchContainer" [class.inputError]="errors.searchTerm">
-    <mat-icon fontIcon="search"></mat-icon>
-    <input
-      type="text"
-      placeholder="Buscar localização..."
-      [ngModel]="searchTerm"
-      (ngModelChange)="onSearchChange($event)"
-    />
-    <button (click)="handleSearch()" [disabled]="loading()">
-      <span *ngIf="!loading()">Buscar</span>
-      <mat-spinner *ngIf="loading()" diameter="12" class="whiteSpinner"></mat-spinner>
-    </button>
+  <div class="searchContainer">
+    <form (ngSubmit)="handleSearch()" [class.inputError]="errors.searchTerm">
+      <mat-icon fontIcon="search"></mat-icon>
+      <input
+        type="text"
+        placeholder="Buscar localização..."
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+      />
+      <button [disabled]="loading()" type="submit">
+        <span *ngIf="!loading()">Buscar</span>
+        <mat-spinner *ngIf="loading()" diameter="12" class="whiteSpinner"></mat-spinner>
+      </button>
+    </form>
   </div>
 
   <div class="contentContainer">
