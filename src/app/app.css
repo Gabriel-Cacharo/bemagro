@@ -1,0 +1,172 @@
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  background: #f9fafb;
+  box-sizing: border-box;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 8px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.searchContainer input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.searchContainer button {
+  background: #66bb6a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  width: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputError {
+  border: 1px solid red !important;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  width: 80%;
+  margin: 0 auto;
+}
+
+.mainCard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 16px;
+
+  background-color: white;
+  color: #111827;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardHeader p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cardHeader .badge {
+  background: #e5e7eb;
+  color: #111827;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.weatherInfoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.weatherLeftSideContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.temperature {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.description {
+  text-transform: capitalize;
+  color: #6b7280;
+}
+
+.feelsLike {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.weatherRightSideContainer {
+  text-align: right;
+}
+
+.weatherRightSideContainer p {
+  font-weight: 600;
+}
+
+.weatherInfoCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.weatherInfoCard h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.mapContainer {
+  border-radius: 12px;
+  overflow: hidden;
+
+  background: white;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mapContainer h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Spinner Material UI */
+.whiteSpinner {
+  /* define a cor do stroke do círculo interno */
+}
+
+.whiteSpinner svg circle {
+  stroke: white !important; /* força a cor branca */
+}

@@ -1,0 +1,94 @@
+<app-header></app-header>
+
+<main class="mainContent">
+  <div class="searchContainer" [class.inputError]="errors.searchTerm">
+    <mat-icon fontIcon="search"></mat-icon>
+    <input
+      type="text"
+      placeholder="Buscar localização..."
+      [ngModel]="searchTerm"
+      (ngModelChange)="onSearchChange($event)"
+    />
+    <button (click)="handleSearch()" [disabled]="loading()">
+      <span *ngIf="!loading()">Buscar</span>
+      <mat-spinner *ngIf="loading()" diameter="12" class="whiteSpinner"></mat-spinner>
+    </button>
+  </div>
+
+  <div class="contentContainer">
+    <div class="mainCard">
+      <div class="cardHeader">
+        <p class="location">
+          <mat-icon fontIcon="location_on"></mat-icon>{{ citySearched || 'Sem informações' }}
+        </p>
+        <span class="badge">Agora</span>
+      </div>
+
+      <div class="weatherInfoContainer">
+        <div class="weatherLeftSideContainer">
+          <img
+            src="https://openweathermap.org/img/wn/{{ weatherData?.weather[0]?.icon }}@2x.png"
+            alt=""
+          />
+          <div>
+            <p class="temperature">
+              {{ weatherData?.main?.temp || 'Sem informações' }}
+              {{ weatherData?.main?.temp && '°C' }}
+            </p>
+            <span class="feelsLike"
+              >Sensação: {{ weatherData?.main?.feels_like || 'Sem informações'
+              }}{{ weatherData?.main?.feels_like && '°C' }}</span
+            >
+          </div>
+        </div>
+
+        <div class="weatherRightSideContainer">
+          <p>Máx/Mín</p>
+          <span>
+            {{ weatherData?.main?.temp_max || 'Sem informações'
+            }}{{ weatherData?.main?.temp_max && '°C' }} /
+            {{ weatherData?.main?.temp_min || 'Sem informações'
+            }}{{ weatherData?.main?.temp_min && '°C' }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="weatherInfoCardsContainer">
+      <app-weather-card
+        [weatherIcon]="'water_drop'"
+        [weatherData]="weatherData?.main?.humidity || 'Sem informações'"
+        [weatherName]="'Umidade'"
+        [infoType]="'%'"
+      ></app-weather-card>
+
+      <app-weather-card
+        [weatherIcon]="'air'"
+        [weatherData]="weatherData?.wind?.speed || 'Sem informações'"
+        [weatherName]="'Vento'"
+        [infoType]="'m/s'"
+      ></app-weather-card>
+
+      <app-weather-card
+        [weatherIcon]="'speed'"
+        [weatherData]="weatherData?.main?.pressure || 'Sem informações'"
+        [weatherName]="'Pressão'"
+        [infoType]="'hPa'"
+      ></app-weather-card>
+
+      <app-weather-card
+        [weatherIcon]="'visibility'"
+        [weatherData]="weatherData?.visibility / 1000 || 'Sem informações'"
+        [weatherName]="'Visibilidade'"
+        [infoType]="'km'"
+      ></app-weather-card>
+    </div>
+
+    <div class="mapContainer">
+      <h3><mat-icon fontIcon="map"> </mat-icon>Localização no mapa</h3>
+      <app-map-view [lat]="latSearched" [lng]="lngSearched"></app-map-view>
+    </div>
+  </div>
+</main>
+
+<router-outlet />
