@@ -14,6 +14,8 @@ git clone <URL>
 npm i
 ```
 
+- Coloque sua API KEY da OpenWeather em src/environments/environment.ts
+
 ```bash
 npm start
 ```
