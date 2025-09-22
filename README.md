@@ -14,7 +14,8 @@ git clone <URL>
 npm i
 ```
 
-- Coloque sua API KEY da OpenWeather em src/environments/environment.ts
+- Coloque sua API KEY da OpenWeather em `openWeatherApiKey` localizado no arquivo: src/environments/environment.ts
+- Você pode utilizar essa API KEY para testes: "5a7c74c7570b9f02b6887e8d38c9fec6"
 
 ```bash
 npm start
